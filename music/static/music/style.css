@@ -1,5 +1,20 @@
 body {
-    background: white url("images/music_background.jpg");
+    background: white url("images/music_background4.png");
     background-attachment: fixed;
+    background-repeat: no-repeat;
     background-position: center;
+}
+ul {
+    list-style: none;
+}
+.title-heading {
+    padding-left: 15;
+}
+.navbar {
+    border-radius: 0;
+}
+.navbar-inverse .navbar-brand {
+    font-family: 'Rock Salt', cursive;
+    font-size: 1.8em;
+    color: #FF1493;
 }
