@@ -4,9 +4,22 @@
     <h3>Artist: {{ album.artist }}</h3>
 {% endif %}
 
-<ul>
-    <h3>Songs:</h3>
+<!-- if there is an error -->
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'music:favorite' album.id %}" method="post">
+    {% csrf_token %}
     {% for song in album.song_set.all %}
-    <li>Title: {{ song.song_title }} - {{ song.file_type }}</li>
+        <input type="checkbox" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}">
+        <label for="song {{ forloop.counter }}">
+            {{ song.song_title }}
+            {% if song.is_favorite %}
+                <img src="http://www.uno-en-ligne.com/images/icons/player_honest.png">
+            {% endif %}
+        </label>
+        <br>
     {% endfor %}
-</ul>
+    <input type="submit" value="Favorite">
+</form>
