@@ -1,0 +1,4 @@
+*.pyc
+secretsettings.py
+__pycache__
+db.sqlite3
