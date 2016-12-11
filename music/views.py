@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def index(request):
+    return HttpResponse("YO."
+                        "<h1>This is the music homepage</h1>"
+                        "<p>You like?</p>")
