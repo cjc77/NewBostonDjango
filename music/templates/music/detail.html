@@ -1,4 +1,12 @@
 {% if album %}
-    <h2>{{ album.album_title }}</h2>
-    <h2><a href="{{ album.album_logo }}" target="_blank">Album Artwork</a></h2>
+    <img src="{{ album.album_logo }}">
+    <h2>Album: {{ album.album_title }}</h2>
+    <h3>Artist: {{ album.artist }}</h3>
 {% endif %}
+
+<ul>
+    <h3>Songs:</h3>
+    {% for song in album.song_set.all %}
+    <li>Title: {{ song.song_title }} - {{ song.file_type }}</li>
+    {% endfor %}
+</ul>
