@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Index</title>
-    </head>
-    <body>
-        {% if all_albums %}
-            <ul>
-                {% for album in all_albums %}
-                    <li><a href="/music/{{ album.id }}/">{{ album.album_title }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <h3>You have no albums in your database.</h3>
-        {% endif %}
-    </body>
-</html>
+{% if all_albums %}
+    <ul>
+        {% for album in all_albums %}
+            <li><a href="/music/{{ album.id }}/">{{ album.album_title }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>You have no albums in your database.</h3>
+{% endif %}
