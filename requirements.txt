@@ -1,0 +1,5 @@
+Django (1.10.4)
+djangorestframework (3.5.3)
+pip (9.0.1)
+setuptools (30.4.0)
+wheel (0.30.0a0)

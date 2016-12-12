@@ -1,13 +1,22 @@
+# For user
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
+
+# For API
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from . serializers import AlbumSerializer, SongSerializer
+
 from . models import Album, Song
 from . forms import UserForm
 
 
+# For Webapp
 class IndexView(generic.ListView):
     template_name = 'music/index.html'
     context_object_name = 'all_albums'
@@ -62,6 +71,28 @@ class UserFormView(View):
             user.set_password(password)
             user.save()
 
+            # Return User objects if credentials correct
+            user = authenticate(username=username, password=password)
+
+            if user:
+
+                if user.is_active:
+                    login(request, user)
+                    return redirect('music:index')
+
+        return render(request, self.template_name, {'form': form})
+
+
+# For API
+class AlbumList(APIView):
+
+    def get(self, request):
+        albums = Album.objects.all()
+        serializer = AlbumSerializer(albums, many=True)
+        return Response(serializer.data)
+
+    def post(self):
+        pass
 
 
 
@@ -73,4 +104,9 @@ class UserFormView(View):
 
 
 
-    #
+
+
+
+
+
+#
