@@ -27,7 +27,11 @@ urlpatterns = [
 
 
     # API
-    url(r'^albums', views.AlbumList.as_view(), name="album-list-JSON")
+    # music/albums
+    url(r'^albums', views.AlbumList.as_view(), name="album-list-JSON"),
+
+    # music/songs
+    url(r'^songs', views.SongList.as_view(), name="song-list-JSON")
 ]
 
 # For API

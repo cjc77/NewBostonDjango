@@ -88,14 +88,19 @@ class AlbumList(APIView):
 
     def get(self, request):
         albums = Album.objects.all()
-        serializer = AlbumSerializer(albums, many=True)
-        return Response(serializer.data)
+        album_serializer = AlbumSerializer(albums, many=True)
+        return Response(album_serializer.data)
 
     def post(self):
         pass
 
 
+class SongList(APIView):
 
+    def get(self, request):
+        songs = Song.objects.all()
+        song_serializer = SongSerializer(songs, many=True)
+        return Response(song_serializer.data)
 
 
 
