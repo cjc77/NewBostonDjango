@@ -9,8 +9,12 @@ ul {
     list-style: none;
 }
 
-.title-heading {
-    padding-left: 15;
+ul.errorlist {
+    padding-left: 0;
+}
+
+ul.errorlist > li {
+    list-style: none;
 }
 
 .navbar {
@@ -21,4 +25,13 @@ ul {
     font-family: 'Rock Salt', cursive;
     font-size: 1.8em;
     color: #FF1493;
+}
+
+.glyphcon-star {
+    color: #CCCCCC;
+    font-size: 1.2em;
+}
+
+.glyphcon-star.active {
+    color: #FDB230;
 }
