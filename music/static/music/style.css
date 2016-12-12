@@ -4,15 +4,19 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 ul {
     list-style: none;
 }
+
 .title-heading {
     padding-left: 15;
 }
+
 .navbar {
     border-radius: 0;
 }
+
 .navbar-inverse .navbar-brand {
     font-family: 'Rock Salt', cursive;
     font-size: 1.8em;
